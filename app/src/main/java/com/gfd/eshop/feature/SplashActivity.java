@@ -16,14 +16,25 @@ import butterknife.BindView;
  */
 public class SplashActivity extends BaseActivity implements Animator.AnimatorListener {
 
+    /**
+     * 启动页图片
+     */
     @BindView(R.id.image_splash)
     ImageView ivSplash;
 
+    /**
+     * 返回启动页Activity的布局文件
+     *
+     * @return
+     */
     @Override
     protected int getContentViewLayout() {
         return R.layout.activity_splash;
     }
 
+    /**
+     * 初始动画
+     */
     @Override
     protected void initView() {
         // 渐变动画
@@ -39,6 +50,11 @@ public class SplashActivity extends BaseActivity implements Animator.AnimatorLis
     protected void onBusinessResponse(String apiPath, boolean success, ResponseEntity rsp) {
     }
 
+    /**
+     * 动画结束后跳转到EShopMainActivity
+     *
+     * @param animation
+     */
     @Override
     public void onAnimationEnd(Animator animation) {
         Intent intent = new Intent(this, EShopMainActivity.class);

@@ -25,12 +25,15 @@ public class ProgressWrapper extends DialogFragment {
         // Empty constructor required for DialogFragment
     }
 
-    @Override public void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCancelable(false);
     }
 
-    @NonNull @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
 
         Window window = dialog.getWindow();
@@ -40,7 +43,8 @@ public class ProgressWrapper extends DialogFragment {
         return dialog;
     }
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -48,7 +52,8 @@ public class ProgressWrapper extends DialogFragment {
         return inflater.inflate(R.layout.fragment_progress_dialog, container, false);
     }
 
-    @Override public void onStart() {
+    @Override
+    public void onStart() {
         super.onStart();
         Window window = getDialog().getWindow();
         WindowManager.LayoutParams windowParams = window.getAttributes();

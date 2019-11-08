@@ -31,16 +31,19 @@ public class GoodsDetailsFragment extends BaseFragment {
         return fragment;
     }
 
-    @BindView(R.id.web_view) WebView webView;
+    @BindView(R.id.web_view)
+    WebView webView;
 
     private GoodsInfo mGoodsInfo;
 
-    @Override protected int getContentViewLayout() {
+    @Override
+    protected int getContentViewLayout() {
         return R.layout.fragment_goods_details;
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
-    @Override protected void initView() {
+    @Override
+    protected void initView() {
 
         // 获取传入的商品信息实体
         mGoodsInfo = new Gson().fromJson(getArguments().getString(ARGUMENT_GOODS_INFO),
@@ -48,15 +51,13 @@ public class GoodsDetailsFragment extends BaseFragment {
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.loadUrl("file:///android_asset/goodsDetails.html");
+        webView.loadUrl("goodsDetails.html");
         webView.addJavascriptInterface(new WebViewInterface(), "GoodsDetails");
     }
 
     @Override
     protected void onBusinessResponse(String apiPath, boolean success, ResponseEntity rsp) {
-
     }
-
 
     public class WebViewInterface {
 

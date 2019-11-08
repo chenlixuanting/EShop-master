@@ -25,8 +25,10 @@ import butterknife.OnClick;
 public class SimpleSearchView extends LinearLayout implements
         TextView.OnEditorActionListener, TextWatcher {
 
-    @BindView(R.id.edit_query) EditText etQuery;
-    @BindView(R.id.button_clear) ImageButton btnClear;
+    @BindView(R.id.edit_query)
+    EditText etQuery;
+    @BindView(R.id.button_clear)
+    ImageButton btnClear;
 
     private OnSearchListener mOnSearchListener;
 
@@ -56,7 +58,8 @@ public class SimpleSearchView extends LinearLayout implements
         }
     }
 
-    @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
             search();
@@ -80,13 +83,16 @@ public class SimpleSearchView extends LinearLayout implements
     }
 
 
-    @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }
 
-    @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
     }
 
-    @Override public void afterTextChanged(Editable s) {
+    @Override
+    public void afterTextChanged(Editable s) {
         String query = etQuery.getText().toString();
         int visibility = TextUtils.isEmpty(query) ? View.INVISIBLE : View.VISIBLE;
         btnClear.setVisibility(visibility);

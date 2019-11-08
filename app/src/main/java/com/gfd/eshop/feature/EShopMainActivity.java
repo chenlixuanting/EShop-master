@@ -36,9 +36,24 @@ public class EShopMainActivity extends BaseActivity implements OnTabSelectListen
     @BindView(R.id.bottom_bar)
     BottomBar bottomBar;
 
+    /**
+     * 首页面
+     */
     private HomeFragment mHomeFragment;
+
+    /**
+     * 分类页面
+     */
     private CategoryFragment mCategoryFragment;
+
+    /**
+     * 购物车页面
+     */
     private CartFragment mCartFragment;
+
+    /**
+     * 我的页面
+     */
     private MineFragment mMineFragment;
 
     // 当前正在显示的Fragment
@@ -54,6 +69,11 @@ public class EShopMainActivity extends BaseActivity implements OnTabSelectListen
         // "内存重启"时(例如修改手机字体大小), 恢复之前的Fragment.
         // 注意此方法只有在父类的onCreate(Bundle)调用之后才有效.
         retrieveFragments();
+
+        /**
+         * 当tab个数大于0时，将会自动触发选择第一个Tab的时间，
+         * 所以可以看到bottombar上的mHomeFragment
+         */
         bottomBar.setOnTabSelectListener(this);
     }
 
@@ -148,6 +168,5 @@ public class EShopMainActivity extends BaseActivity implements OnTabSelectListen
         mCartFragment = (CartFragment) manager.findFragmentByTag(CartFragment.class.getName());
         mMineFragment = (MineFragment) manager.findFragmentByTag(MineFragment.class.getName());
     }
-
 
 }

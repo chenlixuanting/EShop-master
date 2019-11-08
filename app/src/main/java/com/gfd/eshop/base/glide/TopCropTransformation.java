@@ -24,18 +24,15 @@ public class TopCropTransformation extends BitmapTransformation {
     @Override
     protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
         final Bitmap toReuse = pool.get(outWidth, outHeight, getSafeConfig(toTransform));
-
-
         Bitmap transformed = centerCrop(toReuse, toTransform, outWidth, outHeight);
-
-
         if (toReuse != null && toReuse != transformed && !pool.put(toReuse)) {
             toReuse.recycle();
         }
         return transformed;
     }
 
-    @Override public String getId() {
+    @Override
+    public String getId() {
         return "TopCropTransformation";
     }
 

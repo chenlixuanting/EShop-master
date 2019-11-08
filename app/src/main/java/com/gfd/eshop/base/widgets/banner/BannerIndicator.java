@@ -144,53 +144,56 @@ public class BannerIndicator extends LinearLayout {
     private final ViewPager.OnPageChangeListener mInternalPageChangeListener =
             new ViewPager.OnPageChangeListener() {
 
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                }
 
-        @Override public void onPageSelected(int position) {
+                @Override
+                public void onPageSelected(int position) {
 
-            if (mViewpager.getAdapter() == null || getRealCount() <= 0) {
-                return;
-            }
+                    if (mViewpager.getAdapter() == null || getRealCount() <= 0) {
+                        return;
+                    }
 
-            if (mAnimatorIn.isRunning()) {
-                mAnimatorIn.end();
-                mAnimatorIn.cancel();
-            }
+                    if (mAnimatorIn.isRunning()) {
+                        mAnimatorIn.end();
+                        mAnimatorIn.cancel();
+                    }
 
-            if (mAnimatorOut.isRunning()) {
-                mAnimatorOut.end();
-                mAnimatorOut.cancel();
-            }
+                    if (mAnimatorOut.isRunning()) {
+                        mAnimatorOut.end();
+                        mAnimatorOut.cancel();
+                    }
 
-            View currentIndicator;
-            if (mLastPosition >= 0
-                    && (currentIndicator = getChildAt(getRealPosition(mLastPosition))) != null) {
-                currentIndicator.setBackgroundResource(mIndicatorUnselectedBackgroundResId);
-                mAnimatorIn.setTarget(currentIndicator);
-                mAnimatorIn.start();
-            }
+                    View currentIndicator;
+                    if (mLastPosition >= 0
+                            && (currentIndicator = getChildAt(getRealPosition(mLastPosition))) != null) {
+                        currentIndicator.setBackgroundResource(mIndicatorUnselectedBackgroundResId);
+                        mAnimatorIn.setTarget(currentIndicator);
+                        mAnimatorIn.start();
+                    }
 
-            View selectedIndicator = getChildAt(getRealPosition(position));
-            if (selectedIndicator != null) {
-                selectedIndicator.setBackgroundResource(mIndicatorBackgroundResId);
-                mAnimatorOut.setTarget(selectedIndicator);
-                mAnimatorOut.start();
-            }
-            mLastPosition = position;
-        }
+                    View selectedIndicator = getChildAt(getRealPosition(position));
+                    if (selectedIndicator != null) {
+                        selectedIndicator.setBackgroundResource(mIndicatorBackgroundResId);
+                        mAnimatorOut.setTarget(selectedIndicator);
+                        mAnimatorOut.start();
+                    }
+                    mLastPosition = position;
+                }
 
-        @Override public void onPageScrollStateChanged(int state) {
-        }
-    };
+                @Override
+                public void onPageScrollStateChanged(int state) {
+                }
+            };
 
     public DataSetObserver getDataSetObserver() {
         return mInternalDataSetObserver;
     }
 
     private DataSetObserver mInternalDataSetObserver = new DataSetObserver() {
-        @Override public void onChanged() {
+        @Override
+        public void onChanged() {
             super.onChanged();
             if (mViewpager == null) {
                 return;
@@ -259,7 +262,8 @@ public class BannerIndicator extends LinearLayout {
     }
 
     private class ReverseInterpolator implements Interpolator {
-        @Override public float getInterpolation(float value) {
+        @Override
+        public float getInterpolation(float value) {
             return Math.abs(1.0f - value);
         }
     }

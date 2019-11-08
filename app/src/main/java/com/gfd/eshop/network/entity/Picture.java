@@ -7,11 +7,14 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Picture {
 
-    @SerializedName("small") private String mSmall; // 小图
+    @SerializedName("small")
+    private String mSmall; // 小图
 
-    @SerializedName("thumb") private String mMiddle; // 中图
+    @SerializedName("thumb")
+    private String mMiddle; // 中图
 
-    @SerializedName("url") private String mLarge; // 大图
+    @SerializedName("url")
+    private String mLarge; // 大图
 
     public String getSmall() {
         return mSmall;

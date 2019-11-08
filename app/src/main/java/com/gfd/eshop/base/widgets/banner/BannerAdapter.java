@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.gfd.eshop.R;
+import com.gfd.eshop.network.entity.Banner;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -22,6 +23,10 @@ public abstract class BannerAdapter<T> extends PagerAdapter {
     private List<T> mDataSet = new ArrayList<>();
 
     private Queue<ViewHolder> mHolderQueue = new ArrayDeque<>();
+
+    public BannerAdapter() {
+        Banner banner = new Banner();
+    }
 
     @Override
     public int getCount() {
@@ -57,7 +62,6 @@ public abstract class BannerAdapter<T> extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-
         ViewHolder holder = (ViewHolder) object;
         container.removeView(holder.itemView);
         mHolderQueue.add(holder);
@@ -75,6 +79,7 @@ public abstract class BannerAdapter<T> extends PagerAdapter {
 
         @BindView(R.id.image_banner_item)
         public ImageView ivBannerItem;
+
         public View itemView;
 
         public ViewHolder(View itemView) {

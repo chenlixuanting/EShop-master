@@ -28,7 +28,6 @@ import okhttp3.Call;
  */
 public abstract class BaseFragment extends Fragment {
 
-
     private Unbinder mUnbinder;
 
     @Nullable
@@ -41,14 +40,16 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
-    @Override public final void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    @Override
+    public final void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
         EventBus.getDefault().register(this);
     }
 
 
-    @Override public final void onDestroyView() {
+    @Override
+    public final void onDestroyView() {
         super.onDestroyView();
         EShopClient.getInstance().cancelByTag(getClass().getSimpleName());
         EventBus.getDefault().unregister(this);
@@ -74,7 +75,9 @@ public abstract class BaseFragment extends Fragment {
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onEvent(UserEvent event) {
     }
-    @LayoutRes protected abstract int getContentViewLayout();
+
+    @LayoutRes
+    protected abstract int getContentViewLayout();
 
     protected abstract void initView();
 

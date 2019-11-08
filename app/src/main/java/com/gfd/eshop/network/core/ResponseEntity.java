@@ -8,7 +8,8 @@ import com.google.gson.annotations.SerializedName;
  */
 public abstract class ResponseEntity {
 
-    @SerializedName("status") private Status mStatus;
+    @SerializedName("status")
+    private Status mStatus;
 
     public Status getStatus() {
         return mStatus;

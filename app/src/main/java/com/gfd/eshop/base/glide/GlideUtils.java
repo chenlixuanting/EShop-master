@@ -15,11 +15,19 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 import jp.wasabeef.glide.transformations.GrayscaleTransformation;
 
+/**
+ * Glide工具类
+ */
 public class GlideUtils {
 
     private GlideUtils() {
     }
 
+    /**
+     * 加载轮播图
+     * @param picture
+     * @param imageView
+     */
     public static void loadBanner(Picture picture, ImageView imageView) {
         Glide.with(imageView.getContext())
                 .load(picture.getLarge())

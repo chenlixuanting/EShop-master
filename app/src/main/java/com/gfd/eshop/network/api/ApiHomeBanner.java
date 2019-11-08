@@ -18,16 +18,21 @@ import java.util.List;
  */
 public class ApiHomeBanner implements ApiInterface {
 
-
-    @NonNull @Override public String getPath() {
+    @NonNull
+    @Override
+    public String getPath() {
         return ApiPath.HOME_DATA;
     }
 
-    @Nullable @Override public RequestParam getRequestParam() {
+    @Nullable
+    @Override
+    public RequestParam getRequestParam() {
         return null;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
@@ -42,9 +47,11 @@ public class ApiHomeBanner implements ApiInterface {
 
         public static class Data {
 
-            @SerializedName("player") private List<Banner> mBanners;
+            @SerializedName("player")
+            private List<Banner> mBanners;
 
-            @SerializedName("promote_goods") private List<SimpleGoods> mGoodsList;
+            @SerializedName("promote_goods")
+            private List<SimpleGoods> mGoodsList;
 
             public List<Banner> getBanners() {
                 return mBanners;

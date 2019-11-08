@@ -16,7 +16,8 @@ public abstract class PtrWrapper {
     private PtrFrameLayout mRefreshLayout;
 
     private PtrDefaultHandler mPtrHandler = new PtrDefaultHandler() {
-        @Override public void onRefreshBegin(PtrFrameLayout frame) {
+        @Override
+        public void onRefreshBegin(PtrFrameLayout frame) {
             onRefresh();
         }
     };
@@ -34,7 +35,8 @@ public abstract class PtrWrapper {
 
     public void postRefresh(long delay) {
         mRefreshLayout.postDelayed(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 mRefreshLayout.autoRefresh();
             }
         }, delay);

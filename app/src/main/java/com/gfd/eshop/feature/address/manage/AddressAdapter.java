@@ -20,11 +20,10 @@ import butterknife.OnClick;
 
 public abstract class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder> {
 
-
     private final List<Address> mAddressList = new ArrayList<>();
 
-
-    @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_address, parent, false);
@@ -32,11 +31,13 @@ public abstract class AddressAdapter extends RecyclerView.Adapter<AddressAdapter
         return new ViewHolder(view);
     }
 
-    @Override public void onBindViewHolder(ViewHolder holder, int position) {
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
         holder.bind(mAddressList.get(position));
     }
 
-    @Override public int getItemCount() {
+    @Override
+    public int getItemCount() {
         return mAddressList.size();
     }
 
@@ -54,9 +55,12 @@ public abstract class AddressAdapter extends RecyclerView.Adapter<AddressAdapter
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.text_address_info1) TextView tvInfo1;
-        @BindView(R.id.text_address_info2) TextView tvInfo2;
-        @BindView(R.id.text_set_default) TextView tvSetDefault;
+        @BindView(R.id.text_address_info1)
+        TextView tvInfo1;
+        @BindView(R.id.text_address_info2)
+        TextView tvInfo2;
+        @BindView(R.id.text_set_default)
+        TextView tvSetDefault;
 
         private Address mAddress;
 

@@ -28,7 +28,8 @@ import butterknife.Unbinder;
 
 public class PhotoWrapper extends DialogFragment {
 
-    @BindView(R.id.image_photo) ImageView ivPhoto;
+    @BindView(R.id.image_photo)
+    ImageView ivPhoto;
 
     private Unbinder mUnbinder;
     private String mUrl;
@@ -37,12 +38,15 @@ public class PhotoWrapper extends DialogFragment {
         // Empty constructor required for DialogFragment
     }
 
-    @Override public void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCancelable(true);
     }
 
-    @NonNull @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
 
         Window window = dialog.getWindow();
@@ -52,7 +56,8 @@ public class PhotoWrapper extends DialogFragment {
         return dialog;
     }
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -62,7 +67,8 @@ public class PhotoWrapper extends DialogFragment {
         return view;
     }
 
-    @Override public void onActivityCreated(Bundle savedInstanceState) {
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ivPhoto.setImageDrawable(new ColorDrawable());
 
@@ -80,7 +86,8 @@ public class PhotoWrapper extends DialogFragment {
                 .into(target);
     }
 
-    @Override public void onStart() {
+    @Override
+    public void onStart() {
         super.onStart();
         Window window = getDialog().getWindow();
         WindowManager.LayoutParams windowParams = window.getAttributes();
@@ -90,7 +97,8 @@ public class PhotoWrapper extends DialogFragment {
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     }
 
-    @Override public void onDestroyView() {
+    @Override
+    public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
         mUnbinder = null;

@@ -18,7 +18,8 @@ public class InfinitePagerAdapter extends PagerAdapter {
         this.mRealAdapter = realAdapter;
 
         mRealAdapter.registerDataSetObserver(new DataSetObserver() {
-            @Override public void onChanged() {
+            @Override
+            public void onChanged() {
                 super.onChanged();
                 InfinitePagerAdapter.this.notifyDataSetChanged();
 
@@ -28,17 +29,20 @@ public class InfinitePagerAdapter extends PagerAdapter {
                 }
             }
 
-            @Override public void onInvalidated() {
+            @Override
+            public void onInvalidated() {
                 super.onInvalidated();
             }
         });
     }
 
-    @Override public int getCount() {
+    @Override
+    public int getCount() {
         return getRealCount() == 0 ? 0 : MAX_SIZE;
     }
 
-    @Override public Object instantiateItem(ViewGroup container, int position) {
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
 
         if (getRealCount() == 0) {
             return null;
@@ -49,7 +53,8 @@ public class InfinitePagerAdapter extends PagerAdapter {
         return mRealAdapter.instantiateItem(container, realPosition);
     }
 
-    @Override public void destroyItem(ViewGroup container, int position, Object object) {
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
 
         if (getRealCount() == 0) {
             return;
@@ -59,27 +64,33 @@ public class InfinitePagerAdapter extends PagerAdapter {
         mRealAdapter.destroyItem(container, realPosition, object);
     }
 
-    @Override public boolean isViewFromObject(View view, Object object) {
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
         return mRealAdapter.isViewFromObject(view, object);
     }
 
-    @Override public void finishUpdate(ViewGroup container) {
+    @Override
+    public void finishUpdate(ViewGroup container) {
         mRealAdapter.finishUpdate(container);
     }
 
-    @Override public void restoreState(Parcelable state, ClassLoader loader) {
+    @Override
+    public void restoreState(Parcelable state, ClassLoader loader) {
         mRealAdapter.restoreState(state, loader);
     }
 
-    @Override public Parcelable saveState() {
+    @Override
+    public Parcelable saveState() {
         return mRealAdapter.saveState();
     }
 
-    @Override public void startUpdate(ViewGroup container) {
+    @Override
+    public void startUpdate(ViewGroup container) {
         mRealAdapter.startUpdate(container);
     }
 
-    @Override public int getItemPosition(Object object) {
+    @Override
+    public int getItemPosition(Object object) {
         return mRealAdapter.getItemPosition(object);
     }
 

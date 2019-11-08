@@ -40,7 +40,8 @@ public class EShopClient {
 
         HttpLoggingInterceptor mLoggingInterceptor = new HttpLoggingInterceptor(
                 new HttpLoggingInterceptor.Logger() {
-                    @Override public void log(String message) {
+                    @Override
+                    public void log(String message) {
                         if (mShowLog) System.out.println(message); // NOPMD
                     }
                 });
@@ -63,7 +64,6 @@ public class EShopClient {
      */
     public <T extends ResponseEntity> T execute(ApiInterface apiInterface)
             throws IOException {
-
         Response response = newApiCall(apiInterface, null).execute();
         //noinspection unchecked
         Class<T> entityClass = (Class<T>) apiInterface.getResponseType();

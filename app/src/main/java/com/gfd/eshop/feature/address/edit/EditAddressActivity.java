@@ -48,13 +48,20 @@ public class EditAddressActivity extends BaseActivity {
     }
 
 
-    @BindView(R.id.edit_consignee) EditText etConsignee;
-    @BindView(R.id.edit_tel) EditText etTel;
-    @BindView(R.id.edit_detail) EditText etDetail;
-    @BindView(R.id.edit_zipcode) EditText etZipcode;
-    @BindView(R.id.edit_email) EditText etEmail;
-    @BindView(R.id.button_save) Button btnSave;
-    @BindView(R.id.text_region) TextView tvRegion;
+    @BindView(R.id.edit_consignee)
+    EditText etConsignee;
+    @BindView(R.id.edit_tel)
+    EditText etTel;
+    @BindView(R.id.edit_detail)
+    EditText etDetail;
+    @BindView(R.id.edit_zipcode)
+    EditText etZipcode;
+    @BindView(R.id.edit_email)
+    EditText etEmail;
+    @BindView(R.id.button_save)
+    Button btnSave;
+    @BindView(R.id.text_region)
+    TextView tvRegion;
 
     private String mConsignee; // 收件人姓名
     private String mTel; // 手机号码
@@ -77,11 +84,13 @@ public class EditAddressActivity extends BaseActivity {
 
     private Address mAddress;
 
-    @Override protected int getContentViewLayout() {
+    @Override
+    protected int getContentViewLayout() {
         return R.layout.activity_edit_adress;
     }
 
-    @Override protected void initView() {
+    @Override
+    protected void initView() {
 
         String str = getIntent().getStringExtra(EXTRA_ADDRESS);
         if (!TextUtils.isEmpty(str)) {
@@ -147,7 +156,8 @@ public class EditAddressActivity extends BaseActivity {
             R.id.edit_detail,
             R.id.edit_zipcode,
             R.id.edit_email
-    }) void onTextChanged() {
+    })
+    void onTextChanged() {
         mConsignee = etConsignee.getText().toString();
         mTel = etTel.getText().toString();
         mDetail = etDetail.getText().toString();
@@ -157,13 +167,15 @@ public class EditAddressActivity extends BaseActivity {
         checkAddressComplete();
     }
 
-    @OnClick(R.id.text_region) void selectRegion() {
+    @OnClick(R.id.text_region)
+    void selectRegion() {
         clearRegionInfo();
         // 获取省份列表.
         enqueue(new ApiRegion(ApiRegion.ID_CHINA));
     }
 
-    @OnClick(R.id.button_save) void saveAddress() {
+    @OnClick(R.id.button_save)
+    void saveAddress() {
         Address address;
         if (mAddress == null) {
             address = new Address();
@@ -219,7 +231,8 @@ public class EditAddressActivity extends BaseActivity {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.address_choose_province)
                 .setItems(regionsToStrings(mProvinceList), new DialogInterface.OnClickListener() {
-                    @Override public void onClick(DialogInterface dialog, int which) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
                         Region region = mProvinceList.get(which);
                         mProvinceId = region.getId();
                         mProvinceName = region.getName();
@@ -235,7 +248,8 @@ public class EditAddressActivity extends BaseActivity {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.address_choose_city)
                 .setItems(regionsToStrings(mCityList), new DialogInterface.OnClickListener() {
-                    @Override public void onClick(DialogInterface dialog, int which) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
                         Region region = mCityList.get(which);
                         mCityId = region.getId();
                         mCityName = region.getName();
@@ -250,7 +264,8 @@ public class EditAddressActivity extends BaseActivity {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.address_choose_district)
                 .setItems(regionsToStrings(mDistrictList), new DialogInterface.OnClickListener() {
-                    @Override public void onClick(DialogInterface dialog, int which) {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
                         Region region = mDistrictList.get(which);
                         mDistrictId = region.getId();
                         mDistrictName = region.getName();

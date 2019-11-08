@@ -23,8 +23,11 @@ public class BannerLayout extends RelativeLayout {
 
     private static final long sDuration = 4000;
 
-    @BindView(R.id.pager_banner) ViewPager pagerBanner;
-    @BindView(R.id.indicator) BannerIndicator mBannerIndicator;
+    @BindView(R.id.pager_banner)
+    ViewPager pagerBanner;
+
+    @BindView(R.id.indicator)
+    BannerIndicator mBannerIndicator;
 
     private BannerAdapter mBannerAdapter;
     private CyclingHandler mCyclingHandler;
@@ -41,7 +44,8 @@ public class BannerLayout extends RelativeLayout {
             mBannerReference = new WeakReference<>(bannerLayout);
         }
 
-        @Override public void handleMessage(Message msg) {
+        @Override
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (mBannerReference == null) return;
             BannerLayout bannerLayout = mBannerReference.get();
@@ -70,12 +74,14 @@ public class BannerLayout extends RelativeLayout {
         init(context);
     }
 
-    @Override protected void onAttachedToWindow() {
+    @Override
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
         mCycleTimer = new Timer();
         mCycleTask = new TimerTask() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 mCyclingHandler.sendEmptyMessage(0);
             }
         };
@@ -83,7 +89,8 @@ public class BannerLayout extends RelativeLayout {
         mCycleTimer.schedule(mCycleTask, sDuration, sDuration);
     }
 
-    @Override protected void onDetachedFromWindow() {
+    @Override
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
 
         mCycleTimer.cancel();
@@ -93,7 +100,8 @@ public class BannerLayout extends RelativeLayout {
     }
 
 
-    @Override public boolean dispatchTouchEvent(MotionEvent ev) {
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
         mResumeCyclingTime = System.currentTimeMillis() + sDuration;
         return super.dispatchTouchEvent(ev);
     }

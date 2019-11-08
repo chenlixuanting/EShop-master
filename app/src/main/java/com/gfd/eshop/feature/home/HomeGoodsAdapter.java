@@ -24,19 +24,23 @@ import butterknife.OnClick;
 
 public class HomeGoodsAdapter extends BaseListAdapter<CategoryHome, HomeGoodsAdapter.ViewHolder> {
 
-
-    @Override protected int getItemViewLayout() {
+    @Override
+    protected int getItemViewLayout() {
         return R.layout.item_home_goods;
     }
 
-    @Override protected ViewHolder getItemViewHolder(View itemView) {
+    @Override
+    protected ViewHolder getItemViewHolder(View itemView) {
         return new ViewHolder(itemView);
     }
 
     class ViewHolder extends BaseListAdapter.ViewHolder {
 
-        @BindView(R.id.text_category) TextView tvCategory;
-        @BindView(R.id.grid_image) ImageGrid imageGrid;
+        @BindView(R.id.text_category)
+        TextView tvCategory;
+
+        @BindView(R.id.grid_image)
+        ImageGrid imageGrid;
 
         private ImageView[] mImageViews;
 
@@ -50,14 +54,16 @@ public class HomeGoodsAdapter extends BaseListAdapter<CategoryHome, HomeGoodsAda
             for (int i = 0; i < mImageViews.length; i++) {
                 final int index = i;
                 mImageViews[i].setOnClickListener(new View.OnClickListener() {
-                    @Override public void onClick(View v) {
+                    @Override
+                    public void onClick(View v) {
                         navigateToGoodsActivity(index);
                     }
                 });
             }
         }
 
-        @Override protected void bind(int position) {
+        @Override
+        protected void bind(int position) {
             mItem = getItem(position);
             tvCategory.setText(mItem.getName());
 
@@ -70,7 +76,8 @@ public class HomeGoodsAdapter extends BaseListAdapter<CategoryHome, HomeGoodsAda
             }
         }
 
-        @OnClick(R.id.text_category) void navigateToSeach() {
+        @OnClick(R.id.text_category)
+        void navigateToSeach() {
             Filter filter = new Filter();
             filter.setCategoryId(mItem.getId());
             Intent intent = SearchGoodsActivity.getStartIntent(getContext(), filter);

@@ -25,7 +25,8 @@ import butterknife.Unbinder;
 
 public class AlertWrapper extends DialogFragment {
 
-    @BindView(R.id.text_alert) TextView tvAlert;
+    @BindView(R.id.text_alert)
+    TextView tvAlert;
 
     private Unbinder mUnbinder;
     private View.OnClickListener mConfirmListener;
@@ -36,12 +37,15 @@ public class AlertWrapper extends DialogFragment {
         // Empty constructor required for DialogFragment
     }
 
-    @Override public void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCancelable(true);
     }
 
-    @NonNull @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
 
         Window window = dialog.getWindow();
@@ -51,7 +55,8 @@ public class AlertWrapper extends DialogFragment {
         return dialog;
     }
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -62,7 +67,8 @@ public class AlertWrapper extends DialogFragment {
         return view;
     }
 
-    @Override public void onStart() {
+    @Override
+    public void onStart() {
         super.onStart();
         Window window = getDialog().getWindow();
         WindowManager.LayoutParams windowParams = window.getAttributes();
@@ -71,7 +77,8 @@ public class AlertWrapper extends DialogFragment {
         window.setAttributes(windowParams);
     }
 
-    @Override public void onDestroyView() {
+    @Override
+    public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
         mUnbinder = null;

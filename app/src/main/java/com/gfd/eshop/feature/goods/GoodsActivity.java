@@ -62,19 +62,23 @@ public class GoodsActivity extends BaseActivity implements ViewPager.OnPageChang
 
     @BindViews({R.id.text_tab_goods, R.id.text_tab_details, R.id.text_tab_comments})
     List<TextView> tvTabList;
-    @BindView(R.id.pager_goods) ViewPager goodsPager;
-    @BindView(R.id.button_show_cart) ImageButton btnCart;
+    @BindView(R.id.pager_goods)
+    ViewPager goodsPager;
+    @BindView(R.id.button_show_cart)
+    ImageButton btnCart;
 
     private BadgeWrapper mBadgeView;
     private GoodsInfo mGoodsInfo;
     private GoodsSpecPopupWindow mGoodsSpecPopupWindow;
     private boolean mBuy;
 
-    @Override protected int getContentViewLayout() {
+    @Override
+    protected int getContentViewLayout() {
         return R.layout.activity_goods;
     }
 
-    @Override protected void initView() {
+    @Override
+    protected void initView() {
         new ToolbarWrapper(this);
         goodsPager.addOnPageChangeListener(this);
 
@@ -115,12 +119,14 @@ public class GoodsActivity extends BaseActivity implements ViewPager.OnPageChang
         }
     }
 
-    @Override public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_goods, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.menu_share) {
             ToastWrapper.show(R.string.action_share);
@@ -142,11 +148,13 @@ public class GoodsActivity extends BaseActivity implements ViewPager.OnPageChang
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
 
-    @Override public void onPageSelected(int position) {
+    @Override
+    public void onPageSelected(int position) {
         chooseTab(position);
     }
 
-    @Override public void onPageScrollStateChanged(int state) {
+    @Override
+    public void onPageScrollStateChanged(int state) {
     }
 
     public void selectPage(int position) {
@@ -183,7 +191,8 @@ public class GoodsActivity extends BaseActivity implements ViewPager.OnPageChang
 
                 mBuy = view.getId() == R.id.button_buy;
                 mGoodsSpecPopupWindow.show(new GoodsSpecPopupWindow.OnConfirmListener() {
-                    @Override public void onConfirm(int number) {
+                    @Override
+                    public void onConfirm(int number) {
                         ApiCartCreate apiCartCreate = new ApiCartCreate(mGoodsInfo.getId(), number);
                         enqueue(apiCartCreate);
                     }
@@ -193,7 +202,6 @@ public class GoodsActivity extends BaseActivity implements ViewPager.OnPageChang
                 throw new UnsupportedOperationException("Unsupported View Id");
         }
     }
-
 
     // 选择Tab标签, 注意此方法只改变Tab标签的UI效果, 不会改变ViewPager的位置.
     private void chooseTab(int position) {

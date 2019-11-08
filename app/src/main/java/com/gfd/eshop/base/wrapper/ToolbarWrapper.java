@@ -16,7 +16,8 @@ public class ToolbarWrapper {
 
     private BaseActivity mBaseActivity;
 
-    @Nullable private TextView mTvTitle;
+    @Nullable
+    private TextView mTvTitle;
 
     public ToolbarWrapper(BaseActivity activity) {
         mBaseActivity = activity;

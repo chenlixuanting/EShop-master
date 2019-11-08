@@ -2,6 +2,7 @@ package com.gfd.eshop.feature.home;
 
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.gfd.eshop.R;
 import com.gfd.eshop.base.BaseFragment;
 import com.gfd.eshop.base.glide.GlideUtils;
+import com.gfd.eshop.base.utils.LogUtils;
 import com.gfd.eshop.base.widgets.banner.BannerAdapter;
 import com.gfd.eshop.base.widgets.banner.BannerLayout;
 import com.gfd.eshop.base.wrapper.PtrWrapper;
@@ -46,6 +48,7 @@ public class HomeFragment extends BaseFragment {
             R.drawable.mask_round_pink,
             R.drawable.mask_round_yellow
     };
+
     private SimpleGoods simpleGoods;
 
     public static HomeFragment newInstance() {
@@ -57,12 +60,13 @@ public class HomeFragment extends BaseFragment {
 
     private HomeGoodsAdapter mGoodsAdapter; // 首页商品列表适配器.
     private BannerAdapter<Banner> mBannerAdapter; //轮播图适配器.
-    private PtrWrapper mPtrWrapper;
+    private PtrWrapper mPtrWrapper; //下拉刷新
 
     private boolean mBannerRefreshed = false;
     private boolean mCategoryRefreshed = false;
 
     private ImageView[] mIvPromotes = new ImageView[4];
+
     private TextView mTvPromoteGoods;
 
     @Override
@@ -81,12 +85,14 @@ public class HomeFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.partial_home_header, goodsListView, false);
 
         BannerLayout bannerLayout = ButterKnife.findById(view, R.id.layout_banner);
+
         mBannerAdapter = new BannerAdapter<Banner>() {
             @Override
             protected void bind(ViewHolder holder, Banner data) {
                 GlideUtils.loadBanner(data.getPicture(), holder.ivBannerItem);
             }
         };
+
         bannerLayout.setBannerAdapter(mBannerAdapter);
 
         mIvPromotes[0] = ButterKnife.findById(view, R.id.image_promote_one);
@@ -106,10 +112,12 @@ public class HomeFragment extends BaseFragment {
 
                 // 获取轮播图和促销商品数据.
                 enqueue(new ApiHomeBanner());
+
                 // 获取首页商品分类数据.
                 enqueue(new ApiHomeCategory());
             }
         };
+
         mPtrWrapper.postRefresh(50);
     }
 
@@ -141,7 +149,6 @@ public class HomeFragment extends BaseFragment {
         }
     }
 
-
     // 设置显示促销商品.
     private void setPromoteGoods(final List<SimpleGoods> simpleGoodsList) {
 
@@ -169,6 +176,7 @@ public class HomeFragment extends BaseFragment {
                     getActivity().startActivity(intent);
                 }
             });
+
         }
     }
 }

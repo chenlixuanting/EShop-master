@@ -60,7 +60,8 @@ public class MaskTransformation implements Transformation<Bitmap> {
         return BitmapResource.obtain(result, mBitmapPool);
     }
 
-    @Override public String getId() {
+    @Override
+    public String getId() {
         return "MaskTransformation(maskId=" + mContext.getResources().getResourceEntryName(mMaskId)
                 + ")";
     }

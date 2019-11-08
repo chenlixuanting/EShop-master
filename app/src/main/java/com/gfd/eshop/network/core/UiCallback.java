@@ -19,7 +19,6 @@ import okhttp3.ResponseBody;
 
 public abstract class UiCallback implements Callback {
 
-
     private static final Handler HANDLER = new Handler(Looper.getMainLooper());
 
     private Class<? extends ResponseEntity> mResponseType;
@@ -68,6 +67,7 @@ public abstract class UiCallback implements Callback {
         LogUtils.error("onFailureInUi", e);
         ToastWrapper.show(R.string.error_network);
         onBusinessResponse(false, null);
+//        onBusinessResponse(true, null);
     }
 
     public final void onResponseInUi(ResponseEntity responseEntity) {

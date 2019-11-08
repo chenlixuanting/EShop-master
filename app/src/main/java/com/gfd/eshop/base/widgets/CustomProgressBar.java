@@ -26,8 +26,6 @@ public class CustomProgressBar extends ProgressBar {
     }
 
     private void init(Context context, AttributeSet attrs) {
-
-
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.CustomProgressBar);
 

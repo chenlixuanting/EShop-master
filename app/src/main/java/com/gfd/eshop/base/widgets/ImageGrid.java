@@ -48,7 +48,8 @@ public class ImageGrid extends ViewGroup {
         init(context);
     }
 
-    @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
         int left = 0;
         int top = 0;

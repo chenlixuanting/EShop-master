@@ -24,20 +24,23 @@ public abstract class BaseListAdapter<T, V extends BaseListAdapter.ViewHolder> e
 
     private final List<T> mDataSet = new ArrayList<>();
 
-
-    @Override public final int getCount() {
+    @Override
+    public final int getCount() {
         return mDataSet.size();
     }
 
-    @Override public final T getItem(int position) {
+    @Override
+    public final T getItem(int position) {
         return mDataSet.get(position);
     }
 
-    @Override public long getItemId(int position) {
+    @Override
+    public long getItemId(int position) {
         return 0;
     }
 
-    @Override public final View getView(int position, View convertView, ViewGroup parent) {
+    @Override
+    public final View getView(int position, View convertView, ViewGroup parent) {
 
         View itemView = createItemViewIfNotExist(convertView, parent);
 
@@ -58,7 +61,8 @@ public abstract class BaseListAdapter<T, V extends BaseListAdapter.ViewHolder> e
         notifyDataSetChanged();
     }
 
-    @LayoutRes protected abstract int getItemViewLayout();
+    @LayoutRes
+    protected abstract int getItemViewLayout();
 
     protected abstract V getItemViewHolder(View itemView);
 

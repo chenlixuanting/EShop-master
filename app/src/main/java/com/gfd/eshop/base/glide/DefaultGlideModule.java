@@ -8,6 +8,9 @@ import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.module.GlideModule;
 
+/**
+ * 实现GlideModule中的方法，改变Glide的配置
+ */
 public class DefaultGlideModule implements GlideModule {
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
@@ -17,6 +20,5 @@ public class DefaultGlideModule implements GlideModule {
 
     @Override
     public void registerComponents(Context context, Glide glide) {
-
     }
 }
