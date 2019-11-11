@@ -5,17 +5,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class OrderGoods {
 
-    @SerializedName("goods_id") private int mGoodsId;
+    @SerializedName("goods_id")
+    private int mGoodsId;
 
-    @SerializedName("name") private String mGoodsName;
+    @SerializedName("name")
+    private String mGoodsName;
 
-    @SerializedName("goods_number") private int mGoodsNumber;
+    @SerializedName("goods_number")
+    private int mGoodsNumber;
 
-    @SerializedName("subtotal") private String mSubTotal;
+    @SerializedName("subtotal")
+    private String mSubTotal;
 
-    @SerializedName("formated_shop_price") private String mFormatedPrice;
+    @SerializedName("formated_shop_price")
+    private String mFormatedPrice;
 
-    @SerializedName("img") private Picture mImg;
+    @SerializedName("img")
+    private Picture mImg;
 
     public int getGoodsId() {
         return mGoodsId;

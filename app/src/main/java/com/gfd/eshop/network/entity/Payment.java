@@ -7,13 +7,17 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Payment {
 
-    @SerializedName("pay_id") private int mId;
+    @SerializedName("pay_id")
+    private int mId;
 
-    @SerializedName("pay_name") private String mName;
+    @SerializedName("pay_name")
+    private String mName;
 
-    @SerializedName("format_pay_fee") private String mPrice;
+    @SerializedName("format_pay_fee")
+    private String mPrice;
 
-    @SerializedName("pay_code") private String mCode;
+    @SerializedName("pay_code")
+    private String mCode;
 
     public int getId() {
         return mId;

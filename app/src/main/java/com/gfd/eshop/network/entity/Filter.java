@@ -21,11 +21,15 @@ public class Filter {
     public @interface SortOrder {
     }
 
-    @SerializedName("keywords") private String mKeywords;
+    @SerializedName("keywords")
+    private String mKeywords;
 
-    @SerializedName("category_id") private int mCategoryId;
+    @SerializedName("category_id")
+    private int mCategoryId;
 
-    @SerializedName("sort_by") @SortOrder private String mSortBy = SORT_IS_HOT;
+    @SerializedName("sort_by")
+    @SortOrder
+    private String mSortBy = SORT_IS_HOT;
 
     public void setKeywords(String keywords) {
         mKeywords = keywords;

@@ -76,12 +76,17 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+
+        //设置toolbar标题
         new ToolbarWrapper(this).setCustomTitle(R.string.home_title);
 
+        //商品列表
         mGoodsAdapter = new HomeGoodsAdapter();
+
         goodsListView.setAdapter(mGoodsAdapter);
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
+
         View view = inflater.inflate(R.layout.partial_home_header, goodsListView, false);
 
         BannerLayout bannerLayout = ButterKnife.findById(view, R.id.layout_banner);
@@ -171,6 +176,7 @@ public class HomeFragment extends BaseFragment {
             mIvPromotes[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //跳转到商品详情页
                     Intent intent = GoodsActivity.getStartIntent(
                             getContext(), simpleGoods.getId());
                     getActivity().startActivity(intent);

@@ -7,9 +7,11 @@ import com.google.gson.annotations.SerializedName;
  */
 public class CategoryBase {
 
-    @SerializedName("id") private int mId;
+    @SerializedName("id")
+    private int mId;
 
-    @SerializedName("name") private String mName;
+    @SerializedName("name")
+    private String mName;
 
     public int getId() {
         return mId;

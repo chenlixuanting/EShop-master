@@ -7,9 +7,11 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Session {
 
-    @SerializedName("uid") private int mUid;
+    @SerializedName("uid")
+    private int mUid;
 
-    @SerializedName("sid") private String mSid;
+    @SerializedName("sid")
+    private String mSid;
 
     public int getUid() {
         return mUid;

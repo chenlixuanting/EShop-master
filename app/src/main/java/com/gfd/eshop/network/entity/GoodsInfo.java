@@ -9,23 +9,32 @@ import java.util.List;
  */
 public class GoodsInfo {
 
-    @SerializedName("id") private int mId;
+    @SerializedName("id")
+    private int mId;
 
-    @SerializedName("goods_name") private String mName;
+    @SerializedName("goods_name")
+    private String mName;
 
-    @SerializedName("pictures") private List<Picture> mPictures;
+    @SerializedName("pictures")
+    private List<Picture> mPictures;
 
-    @SerializedName("shop_price") private String mShopPrice;
+    @SerializedName("shop_price")
+    private String mShopPrice;
 
-    @SerializedName("market_price") private String mMarketPrice;
+    @SerializedName("market_price")
+    private String mMarketPrice;
 
-    @SerializedName("specification") private List<GoodsSpec> mSpecs;
+    @SerializedName("specification")
+    private List<GoodsSpec> mSpecs;
 
-    @SerializedName("img") private Picture mImg;
+    @SerializedName("img")
+    private Picture mImg;
 
-    @SerializedName("goods_number") private int mNumber;
+    @SerializedName("goods_number")
+    private int mNumber;
 
-    @SerializedName("collected") private int mCollected;
+    @SerializedName("collected")
+    private int mCollected;
 
     public String getMarketPrice() {
         return mMarketPrice;

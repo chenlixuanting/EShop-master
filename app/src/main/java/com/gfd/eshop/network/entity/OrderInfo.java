@@ -5,11 +5,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class OrderInfo {
 
-    @SerializedName("pay_code") private String mPayCode;
-    @SerializedName("order_amount") private float mPrice;
-    @SerializedName("order_id") private int mId;
-    @SerializedName("subject") private String mSubject;
-    @SerializedName("desc") private String mDesc;
+    @SerializedName("pay_code")
+    private String mPayCode;
+    @SerializedName("order_amount")
+    private float mPrice;
+    @SerializedName("order_id")
+    private int mId;
+    @SerializedName("subject")
+    private String mSubject;
+    @SerializedName("desc")
+    private String mDesc;
 
     public String getPayCode() {
         return mPayCode;

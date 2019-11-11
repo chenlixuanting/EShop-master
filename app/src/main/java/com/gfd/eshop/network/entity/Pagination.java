@@ -7,9 +7,11 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Pagination {
 
-    @SerializedName("page") private int mPage = 1; // 页码
+    @SerializedName("page")
+    private int mPage = 1; // 页码
 
-    @SerializedName("count") private int mCount = 5; // 每页条数
+    @SerializedName("count")
+    private int mCount = 5; // 每页条数
 
     public Pagination next() {
         mPage++;

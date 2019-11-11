@@ -27,38 +27,50 @@ public class ApiSignIn implements ApiInterface {
         mReq.mPassword = password;
     }
 
-    @NonNull @Override public String getPath() {
+    @NonNull
+    @Override
+    public String getPath() {
         return ApiPath.USER_SIGNIN;
     }
 
-    @Nullable @Override public RequestParam getRequestParam() {
+    @Nullable
+    @Override
+    public RequestParam getRequestParam() {
         return mReq;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
     public static class Req extends RequestParam {
-        @SerializedName("name") private String mName;
-        @SerializedName("password") private String mPassword;
+        @SerializedName("name")
+        private String mName;
+        @SerializedName("password")
+        private String mPassword;
 
-        @Override protected int sessionUsage() {
+        @Override
+        protected int sessionUsage() {
             return SESSION_NO_NEED;
         }
     }
 
     public static class Rsp extends ResponseEntity {
 
-        @SerializedName("data") Data mData;
+        @SerializedName("data")
+        Data mData;
 
         public Data getData() {
             return mData;
         }
 
         public static class Data {
-            @SerializedName("session") private Session mSession;
-            @SerializedName("user") private User mUser;
+            @SerializedName("session")
+            private Session mSession;
+            @SerializedName("user")
+            private User mUser;
 
             public Session getSession() {
                 return mSession;

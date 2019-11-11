@@ -7,19 +7,26 @@ import java.util.List;
 
 public class Order {
 
-    @SerializedName("order_id") private int mId;
+    @SerializedName("order_id")
+    private int mId;
 
-    @SerializedName("order_sn") private String mSn;
+    @SerializedName("order_sn")
+    private String mSn;
 
-    @SerializedName("order_time") private String mTime;
+    @SerializedName("order_time")
+    private String mTime;
 
-    @SerializedName("total_fee") private String mTotalFee;
+    @SerializedName("total_fee")
+    private String mTotalFee;
 
-    @SerializedName("goods_list") private List<OrderGoods> mGoodsList;
+    @SerializedName("goods_list")
+    private List<OrderGoods> mGoodsList;
 
-    @SerializedName("order_info") private OrderInfo mOrderInfo;
+    @SerializedName("order_info")
+    private OrderInfo mOrderInfo;
 
-    @SerializedName("formated_shipping_fee") private String mShippingFee;
+    @SerializedName("formated_shipping_fee")
+    private String mShippingFee;
 
     public int getId() {
         return mId;

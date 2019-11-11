@@ -47,8 +47,10 @@ public class SearchGoodsActivity extends BaseActivity {
         return intent;
     }
 
-    @BindView(R.id.search_view) SimpleSearchView mSearchView;
-    @BindView(R.id.list_goods) ListView goodsListView;
+    @BindView(R.id.search_view)
+    SimpleSearchView mSearchView;
+    @BindView(R.id.list_goods)
+    ListView goodsListView;
     @BindViews({R.id.text_is_hot, R.id.text_most_expensive, R.id.text_cheapest})
     List<TextView> tvOrderList;
 
@@ -60,11 +62,13 @@ public class SearchGoodsActivity extends BaseActivity {
     private PtrWrapper mPtrWrapper;
     private Call mSearchCall;
 
-    @Override protected int getContentViewLayout() {
+    @Override
+    protected int getContentViewLayout() {
         return R.layout.activity_search_goods;
     }
 
-    @Override protected void initView() {
+    @Override
+    protected void initView() {
         new ToolbarWrapper(this);
         tvOrderList.get(0).setActivated(true);
 
@@ -72,13 +76,15 @@ public class SearchGoodsActivity extends BaseActivity {
         mFilter = new Gson().fromJson(filterStr, Filter.class);
 
         mPtrWrapper = new PtrWrapper(this) {
-            @Override public void onRefresh() {
+            @Override
+            public void onRefresh() {
                 searchGoods(true);
             }
         };
 
         mSearchView.setOnSearchListener(new SimpleSearchView.OnSearchListener() {
-            @Override public void search(String query) {
+            @Override
+            public void search(String query) {
                 mFilter.setKeywords(query);
                 mPtrWrapper.autoRefresh();
             }
@@ -89,7 +95,8 @@ public class SearchGoodsActivity extends BaseActivity {
         mFooter = new LoadMoreFooter(this);
         goodsListView.addFooterView(mFooter);
         goodsListView.setOnScrollListener(new EndlessScrollListener(0, 1) {
-            @Override public boolean onLoadMore(int page, int totalItemsCount) {
+            @Override
+            public boolean onLoadMore(int page, int totalItemsCount) {
 
                 if (mHasMore && mSearchCall == null) {
                     mFooter.setState(LoadMoreFooter.STATE_LOADING);
@@ -175,7 +182,8 @@ public class SearchGoodsActivity extends BaseActivity {
         mPtrWrapper.autoRefresh();
     }
 
-    @OnItemClick(R.id.list_goods) void onItemClick(int position) {
+    @OnItemClick(R.id.list_goods)
+    void onItemClick(int position) {
         SimpleGoods simpleGoods = (SimpleGoods) goodsListView.getItemAtPosition(position);
         if (simpleGoods != null) {
             Intent intent = GoodsActivity.getStartIntent(this, simpleGoods.getId());

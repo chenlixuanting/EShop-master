@@ -29,35 +29,44 @@ public class ApiSearch implements ApiInterface {
     }
 
     @NonNull
-    @Override public String getPath() {
+    @Override
+    public String getPath() {
         return ApiPath.SEARCH;
     }
 
     @Nullable
-    @Override public RequestParam getRequestParam() {
+    @Override
+    public RequestParam getRequestParam() {
         return mReq;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
 
     public static class Req extends RequestParam {
-        @SerializedName("filter") private Filter mFilter;
+        @SerializedName("filter")
+        private Filter mFilter;
 
-        @SerializedName("pagination") private Pagination mPagination;
+        @SerializedName("pagination")
+        private Pagination mPagination;
 
-        @Override protected int sessionUsage() {
+        @Override
+        protected int sessionUsage() {
             return SESSION_NO_NEED;
         }
     }
 
     public static class Rsp extends ResponseEntity {
 
-        @SerializedName("data") private List<SimpleGoods> mData;
+        @SerializedName("data")
+        private List<SimpleGoods> mData;
 
-        @SerializedName("paginated") private Paginated mPaginated;
+        @SerializedName("paginated")
+        private Paginated mPaginated;
 
         public List<SimpleGoods> getData() {
             return mData;

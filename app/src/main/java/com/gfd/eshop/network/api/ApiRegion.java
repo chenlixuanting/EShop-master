@@ -24,29 +24,38 @@ public class ApiRegion implements ApiInterface {
         mReq.mParentId = parentId;
     }
 
-    @NonNull @Override public String getPath() {
+    @NonNull
+    @Override
+    public String getPath() {
         return ApiPath.REGION;
     }
 
-    @Nullable @Override public RequestParam getRequestParam() {
+    @Nullable
+    @Override
+    public RequestParam getRequestParam() {
         return mReq;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
     public static class Req extends RequestParam {
-        @SerializedName("parent_id") private int mParentId;
+        @SerializedName("parent_id")
+        private int mParentId;
 
-        @Override protected int sessionUsage() {
+        @Override
+        protected int sessionUsage() {
             return SESSION_NO_NEED;
         }
     }
 
     public static class Rsp extends ResponseEntity {
 
-        @SerializedName("data") Data mData;
+        @SerializedName("data")
+        Data mData;
 
         public Data getData() {
             return mData;
@@ -54,9 +63,11 @@ public class ApiRegion implements ApiInterface {
 
         public static class Data {
 
-            @SerializedName("more") private int mMore;
+            @SerializedName("more")
+            private int mMore;
 
-            @SerializedName("regions") private List<Region> mRegions;
+            @SerializedName("regions")
+            private List<Region> mRegions;
 
             public boolean hasMore() {
                 return mMore == 1;
