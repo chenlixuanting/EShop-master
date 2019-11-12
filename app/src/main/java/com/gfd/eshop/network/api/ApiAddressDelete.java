@@ -19,22 +19,30 @@ public class ApiAddressDelete implements ApiInterface {
         mReq.mId = addressId;
     }
 
-    @NonNull @Override public String getPath() {
+    @NonNull
+    @Override
+    public String getPath() {
         return ApiPath.ADDRESS_DELETE;
     }
 
-    @Nullable @Override public RequestParam getRequestParam() {
+    @Nullable
+    @Override
+    public RequestParam getRequestParam() {
         return mReq;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
     public static class Req extends RequestParam {
-        @SerializedName("address_id") private int mId;
+        @SerializedName("address_id")
+        private int mId;
 
-        @Override protected int sessionUsage() {
+        @Override
+        protected int sessionUsage() {
             return SESSION_MANDATORY;
         }
     }

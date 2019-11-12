@@ -20,29 +20,38 @@ public class ApiAddressInfo implements ApiInterface {
         mReq.mId = addressId;
     }
 
-    @NonNull @Override public String getPath() {
+    @NonNull
+    @Override
+    public String getPath() {
         return ApiPath.ADDRESS_INFO;
     }
 
-    @Nullable @Override public RequestParam getRequestParam() {
+    @Nullable
+    @Override
+    public RequestParam getRequestParam() {
         return mReq;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
     public static class Req extends RequestParam {
-        @SerializedName("address_id") private int mId;
+        @SerializedName("address_id")
+        private int mId;
 
-        @Override protected int sessionUsage() {
+        @Override
+        protected int sessionUsage() {
             return SESSION_MANDATORY;
         }
     }
 
     public static class Rsp extends ResponseEntity {
 
-        @SerializedName("data") private Address mData;
+        @SerializedName("data")
+        private Address mData;
 
         public Address getData() {
             return mData;

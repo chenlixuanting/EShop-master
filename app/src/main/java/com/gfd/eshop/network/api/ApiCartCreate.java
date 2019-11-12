@@ -24,24 +24,34 @@ public class ApiCartCreate implements ApiInterface {
         mReq.mNumber = number;
     }
 
-    @NonNull @Override public String getPath() {
+    @NonNull
+    @Override
+    public String getPath() {
         return ApiPath.CART_CREATE;
     }
 
-    @Nullable @Override public RequestParam getRequestParam() {
+    @Nullable
+    @Override
+    public RequestParam getRequestParam() {
         return mReq;
     }
 
-    @NonNull @Override public Class<? extends ResponseEntity> getResponseType() {
+    @NonNull
+    @Override
+    public Class<? extends ResponseEntity> getResponseType() {
         return Rsp.class;
     }
 
     public static class Req extends RequestParam {
-        @SerializedName("goods_id") private int mId;
-        @SerializedName("number") private int mNumber;
-        @SerializedName("spec") private List<Integer> mSpecs;
+        @SerializedName("goods_id")
+        private int mId;
+        @SerializedName("number")
+        private int mNumber;
+        @SerializedName("spec")
+        private List<Integer> mSpecs;
 
-        @Override protected int sessionUsage() {
+        @Override
+        protected int sessionUsage() {
             return SESSION_MANDATORY;
         }
     }
